@@ -32,9 +32,10 @@ class Login extends CI_Controller
 				redirect(base_url().'editor',$data);
 				break;
 			case 'Delegado':
-				$data['nombre'] = $this->session->userdata('username');
-				$data['id'] 	= $this->session->userdata('id');
-				$data['perfil'] = $this->session->userdata('perfil');
+				$data['username']  = $this->session->userdata('username');
+				$data['id'] 	     = $this->session->userdata('id');
+				$data['perfil']    = $this->session->userdata('perfil');
+        $data['id_equipo'] = $this->session->userdata('id_equipo');
 				redirect(base_url().'delegado',$data);
 				break;
 			default:
@@ -65,11 +66,13 @@ public function new_user()
 
 				if($check_user == TRUE)
 				{
-					$data = array(
+          //print_r($check_user);
+          $data = array(
 	                'is_logued_in' 	=> 		TRUE,
 	                'id' 			      => 		$check_user->id,
 	                'perfil'		    =>		$check_user->perfil,
-	                'username' 		  => 		$check_user->username
+	                'username' 		  => 		$check_user->username,
+                  'id_equipo'		  => 		$check_user->id_equipo
             		);
 					$this->session->set_userdata($data);
 					$this->index();

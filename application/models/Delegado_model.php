@@ -4,15 +4,9 @@ class Delegado_model extends CI_Model {
     {
         parent::__construct();
     }
-   /*function __construct(){
-      parent::Model();
-   }
 
 //class Tienda_model extends Model {
 
-   function __construct(){
-      parent::Model();
-   }*/
 	function dame_delegado($user)
   {
   $this->db->select('*');
@@ -22,10 +16,13 @@ class Delegado_model extends CI_Model {
   $this->db->join('equipos','equipos.id_equipo=users.id_equipo');
   return $this->db->get();
   }
-  function dame_jugadores($user)
+  function dame_jugadores($ideq)
   {
-  $this->db->where('id_equipo',$user);
-  return $this->db->get('jugadores');
+  $this->db->select('*');
+  $this->db->from('jugadores');
+  $this->db->join('equipos','equipos.id_equipo = jugadores.id_equipo');
+  $this->db->where('jugadores.id_equipo ='.$ideq);
+  return $this->db->get();
   }
 	function buscar_productos($buscar){
 	$this->db->like('nombre',$buscar);

@@ -3,6 +3,7 @@
 <HTML lang="es-Es">
 <head>
 <!--  //////cabeza html  -->
+<?php $this->load->view('admin/head'); ?>
 <title><?php echo $title; ?></title>
 </head>
 <!--  ///////BODY Contenedor/////  -->
@@ -11,31 +12,24 @@
 <?php foreach ($query['del']->result() as $row){;
 ///print_r($row);
 ?>
-<div class="contenedor">
+<header>
+  <div class="container row">
+    <p class="col-md-6"><IMG SRC="<?php echo base_url();?>imagenes/logo_1.png" WIDTH="100" ALT="Logo Mapib"></p>
+    <p class="col-md-6">Bienvenido&nbsp;<?php echo $row->username; ?>&nbsp;eres el&nbsp;<strong><?php echo $row->perfil; ?></strong> del Sitio</p>
+  </div>
+</header>
+<div class="container">
+<section class="main row">
+  <!--Menu Lateral-->
+<?php $this->load->view('delegado/menu'); ?>
 
-<div class="logo">
-<p class="bienvenidos"><IMG SRC="<?php echo base_url();?>imagenes/logo_2.png" WIDTH="300" ALT="Logo Mapib"></p>
-<p>Bienvenido&nbsp;<?php echo $row->username; ?>&nbsp;eres el&nbsp;<strong><?php echo $row->perfil; ?></strong> del Equipo <strong><?php echo $row->nom_equipo; ?></strong></p>
-</div>
-<div class="">
-  <?php foreach ($query['jug']->result() as $fila){
-    //print_r($row);;?>
-<?php echo $fila->nombre_jug; ?></br>
-<?php echo $fila->apellido; ?></br>
-<?php echo $fila->fecha_nacimiento; ?></br>
-<?php echo $fila->rut; ?></br>
-<?php echo $fila->direccion; ?></br>
-<hr>
+<!--///////Contenido--->
+<?php $this->load->view('admin/'.$vista); ?>
+
 <?php } ?>
 </div>
-<!--  //////Menu Lateral/////  -->
-
-<!--  /////////////Contenido/////  -->
-
-<!--  /////////////pie////////  -->
-<?php } ?>
-</div>
-<p class="bienvenidos"><a href="<?php echo base_url(); ?>login/logout_ci"><b>Cerrar Sesi&oacute;n</b></a></p>
+<script src="<?php echo base_url(); ?>bootstrap/js/jquery.js"></script>
+<script src="<?php echo base_url(); ?>bootstrap/js/boottsrap.min.js"></script>
 </BODY>
 </HTML>
 <?php else:?>
