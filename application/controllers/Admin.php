@@ -1181,7 +1181,7 @@ public function eliminar_cancha($id)
 
 		$mi_archivo = 'imagen';
 
-		$config['upload_path'] = './imagenes/juga/';
+		$config['upload_path'] = './imagenes/jugadores/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size'] = '10000';
 		$config['encrypt_name'] = TRUE;
@@ -1270,7 +1270,7 @@ public function eliminar_cancha($id)
 		$this->load->view('admin/plantilla',$datos_vista);
 	}
 
-	////////////////////////////////////////////////////Informes//////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////Informes//////////////////////////////////////////////////////////
 	public function informes(){
 	$this->load->helper('url');
 	$this->load->model('Admin_model');

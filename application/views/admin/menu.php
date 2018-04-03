@@ -11,6 +11,6 @@
 <li class="men"><a href="<?php echo base_url(); ?>admin/jugadores"><b>Jugadores</b></a></li>
 <li class="men"><a href="<?php echo base_url(); ?>admin/arbitros"><b>Arbitros</b></a></li>
 <li class="men"><a href="<?php echo base_url(); ?>admin/cambiar_pass/"><b>Cambiar Contraseña?</b></a>  </li>
-<!--li><a href="<?php echo base_url(); ?>login/logout_ci"><b>Cerrar Sesi&oacute;n</b></a></li-->
+<li class="men"><a href="<?php echo base_url(); ?>login/logout_ci"><b>Cerrar Sesi&oacute;n</b></a></li>
 </ul>
 </nav>

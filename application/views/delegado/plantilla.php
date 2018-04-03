@@ -24,7 +24,7 @@
 <?php $this->load->view('delegado/menu'); ?>
 
 <!--///////Contenido--->
-<?php $this->load->view('admin/'.$vista); ?>
+<?php $this->load->view('delegado/'.$vista); ?>
 
 <?php } ?>
 </div>
