@@ -68,8 +68,11 @@ function user($user)
   //////////////////////////////////////////////////////////////
   function dame_equipo($ideq)
   {
+   $this->db->select('*');
+   $this->db->from('equipos');
    $this->db->where('id_equipo', $ideq);
-   return $this->db->get('equipos');
+   $this->db->join('canchas','equipos.id_cancha=canchas.id_cancha');
+   return $this->db->get();
     }
 
 

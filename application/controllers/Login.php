@@ -16,7 +16,7 @@ class Login extends CI_Controller
 		switch ($this->session->userdata('perfil')) {
 			case '':
 				$data['token'] = $this->token();
-				$data['titulo'] = 'Ingrso de Sesion';
+				$data['titulo'] = 'Ingreso de Sesión';
 				$this->load->view('login',$data);
 				break;
 			case 'Administrador':

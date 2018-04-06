@@ -227,6 +227,20 @@ class Delegado extends CI_Controller {
 		$datos_vista['title'] = "Estadisticas del Jugador";
 		$this->load->view('delegado/plantilla',$datos_vista);
 	}
+	//////////////////////////////////////////////////////////////////
+	public function cambiar_pass()
+	{
+	$user = $this->session->userdata('id');
+	$this->load->helper('url');
+	$this->load->model('Delegado_model');
+	$data['del']  = $this->Delegado_model->dame_delegado($user);
+	$data['user'] = $this->Delegado_model->user($user);
+	$datos_vista = array('query' => $data);
+	$datos_vista['vista'] = "cambiar_pass";
+	$datos_vista['title'] = "Cambiar Contraseña";
+	$this->load->view('delegado/plantilla',$datos_vista);
+	}
+	///////////////////////////////////////////////////////////////////
 	public function equipo()
 	{
 	$user 	= $this->session->userdata('id');
@@ -234,10 +248,10 @@ class Delegado extends CI_Controller {
 	$this->load->helper('url');
 	$this->load->model('Delegado_model');
 	$data['del'] = $this->Delegado_model->dame_delegado($user);
-	$data['usr'] = $this->Delegado_model->user($usr);
+	$data['usr'] = $this->Delegado_model->user($user);
 	$data['eqi'] = $this->Delegado_model->dame_equipo($ideq);
 	$datos_vista = array('query' => $data);
-	$datos_vista['title'] = "Editando Equipo";
+	$datos_vista['title'] = "Nuestro Equipo";
 	$datos_vista['vista'] = "equipos";
 	$this->load->view('delegado/plantilla',$datos_vista);
 	}
